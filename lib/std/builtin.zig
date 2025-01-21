@@ -146,6 +146,8 @@ pub const CodeModel = enum {
     kernel,
     medium,
     large,
+    medlow,
+    medany,
 };
 
 /// This data structure is used by the Zig language code generation and

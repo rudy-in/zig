@@ -1301,6 +1301,8 @@ pub const Object = struct {
             .kernel => .Kernel,
             .medium => .Medium,
             .large => .Large,
+            .medlow => .Small,
+            .medany => .Medium,
         };
 
         const float_abi: llvm.TargetMachine.FloatABI = if (comp.root_mod.resolved_target.result.floatAbi() == .hard)
