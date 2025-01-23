@@ -1152,9 +1152,10 @@ pub const panicInactiveUnionField = Panic.inactiveUnionField;
 /// To be deleted after zig1.wasm is updated.
 pub const panic_messages = Panic.messages;
 
-pub noinline fn returnError(st: *StackTrace) void {
+pub noinline fn returnError() void {
     @branchHint(.unlikely);
     @setRuntimeSafety(false);
+    const st = @errorReturnTrace().?;
     if (st.index < st.instruction_addresses.len)
         st.instruction_addresses[st.index] = @returnAddress();
     st.index += 1;
